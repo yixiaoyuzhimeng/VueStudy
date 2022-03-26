@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>当前计数:{{counter}}</h2>
+        <!-- 监听方法可直接写 -->
+        <!-- <button v-on:click="counter--">-</button>
+        <button v-on:click="counter++">+</button> -->
+        <button v-on:click="sub">-</button>
+        <button @click="add">+</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app=new Vue({
+            el:"#app",
+            data:{
+                counter:0
+            },
+            methods:{
+                add:function(){
+                    this.counter++
+                    // 注意这里使用this获取data里的counter,且没有用到return
+                },
+                sub:function(){
+                    this.counter--
+                }
+            }
+        })
+
+
+
+        // 原生JS：拿button元素，兼听事件
+    </script>
+
+
+</body>
+</html>

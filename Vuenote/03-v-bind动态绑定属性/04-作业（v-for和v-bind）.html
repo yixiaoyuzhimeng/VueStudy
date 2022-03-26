@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active{
+      color:red
+    }
+  </style>
+</head>
+
+<body>
+  <div id='app'>
+    <!-- 作业需求：点击列表中哪一项，哪一项就变为红色 -->
+    <ul>
+      <li  :class="{active:isActive[index]}" @click="active(index)" v-for="(item,index) in movies">{{index+"."+item}}</li>
+    </ul>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello',
+        movies:['aaa','bbb','ccc','ddd'],
+        isActive:[true,false,false,false]
+      },
+      methods:{
+        active:function(index){
+          // i=0
+          // for i in range(length(this.isActive)){
+          //   this.isActive[i]=false
+          // }
+          this.isActive[0]=false
+          this.isActive[1]=false
+          this.isActive[2]=false
+          this.isActive[3]=false
+          this.isActive[index]=true
+          this.movies[index]='被点击'
+            // 怎么响应？
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
