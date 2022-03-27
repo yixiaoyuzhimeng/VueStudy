@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <span v-if="isUser">
+      <label for="username">用户账号</label>
+      <input type="text" id="username" placeholder="用户账号">
+    </span>
+    <span v-else>
+      <label for="email"> 用户邮箱</label>
+      <input type="text" id="email" placeholder="用户邮箱">
+    </span>
+    <button @click="isUser=!isUser">切换类型</button>
+    <!-- 
+      input复用问题：
+      在DOM渲染之前会先生成一个虚拟DOM，在切换DOM时Vue处于性能考虑，先查看虚拟DOM能复用的会进行复用
+      解决方法：给一个key值标识不一样
+     -->
+    <span v-if="isUser">
+      <label for="username">用户账号</label>
+      <input key="name" type="text" id="username" placeholder="用户账号">
+    </span>
+    <span v-else>
+      <label for="email"> 用户邮箱</label>
+      <input key="email" type="text" id="email" placeholder="用户邮箱">
+    </span>
+
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello',
+        isUser: true
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+
+</html>

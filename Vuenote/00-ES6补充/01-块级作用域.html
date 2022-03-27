@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <button>按钮6</button>
+  </div>
+
+
+  <script src='../js/vue.js'></script>
+  <script>
+
+    // 1.变量作用域:变量在什么范围内使用
+    // 2.没有块级作用域引起的问题
+    // 2.1 if的块级，var无作用域
+    // var func;
+    // if(true){
+    //   var name='why';
+    //   func=function(){
+    //     console.log(name);
+    //   }
+    // }
+    // name='lalala';//var没有if的块级作用域的话，就容易改变值，与原来效果违背(本来func想要调用if里面的name,可是name值却在外面改变了)
+    // console.log(name);
+    // 2.2 for的块级，var无作用域
+      var btns=document.getElementsByTagName('button');
+      for(var i=0;i<btns.length;i++){
+        btns[i].addEventListener('click',function(){
+          console.log("第"+i+"个按钮被点击");
+        // 结果都是 5 ，因为i早已被更新为5，并且应用于每个for{}括号内
+        })
+      }
+
+      // 3.function的块级，var有作用域
+      //  闭包能够保证作用域里的变量不因外界而改变 
+      // var btns=document.getElementsByTagName('button');
+      // for(var i=0;i<btns.length;i++){
+      //   (function(n){
+      //     btns[n].addEventListener('click',function(){
+      //     console.log("第"+n+"个按钮被点击");
+      //     })
+      //   })(i)
+      // }
+  
+
+      const btns=document.getElementsByTagName('button');
+      for(let i=0;i<btns.length;i++){
+        btns[i].addEventListener('click',function(){
+          console.log("第"+i+"个按钮被点击");
+        // 结果是1、2、3、4、5，因为每个for{}的作用域保证i不被改变
+        })
+      }
+
+
+  </script>
+</body>
+
+</html>

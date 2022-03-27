@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app' cloak>
+    <h2 @click="btn" v-if="isShow">{{message}}</h2>
+    <h1 @click="btn" v-else>isShow为false时显示我</h1>
+    
+    <h3 v-if="score>=90">优秀</h3>
+    <h3 v-else-if="score>=80">良好</h3>
+    <h3 v-else-if="score>=60">及格</h3>
+    <h3 v-else>不及格</h3>
+<!--复杂逻辑最好放在计算属性中使用js -->
+    <h3>{{result}}</h3>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+       message:'hello',
+       isShow:true,
+       score:60
+    },
+    methods:{
+      btn(){
+        this.isShow=!this.isShow
+      }
+    },
+    computed:{
+      result(){
+        let showMessage='';
+        if(this.score>=90){
+          showMessage='优秀'
+        }else if(this.score>=80){
+          showMessage='良好'
+        }else if(this.score>=60){
+          showMessage='及格'
+        }else{
+          showMessage='不及格'
+        }
+        return showMessage
+      }
+    }
+  })
+  </script>
+</body>
+</html>

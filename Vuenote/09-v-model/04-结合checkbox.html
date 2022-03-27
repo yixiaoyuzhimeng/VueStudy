@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <!-- checkbox单选框 -->
+    <!-- 绑定的是这个框是否被选 -->
+    <label for="agree">
+      <input v-model="isAgree" type="checkbox" id="agree">同意协议
+    </label>
+    <button :disabled="!isAgree">下一步</button>
+    <br>
+    <!-- checkbox多选框 -->
+    <!-- 自动实现更新，多选都可存在 -->
+    <label for="">
+      <input v-model="letters" type="checkbox" value="a" >a
+      <input v-model="letters" type="checkbox" value="b" >b
+      <input v-model="letters" type="checkbox" value="c" >c
+      <input v-model="letters" type="checkbox" value="d" >d
+    </label>
+    <h2>您选择的是：{{letters}}</h2>
+    <!-- 值绑定：把可选的值显示出来 -->
+    <label for="item" v-for="item in originLetters">
+      <input v-model="letters" id="item"  type="checkbox" :value="item" >{{item}}
+    </label>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello',
+        isAgree:false,
+        letters:[],
+        originLetters:['d','f','s','g','m']
+      }
+    })
+  </script>
+</body>
+
+</html>

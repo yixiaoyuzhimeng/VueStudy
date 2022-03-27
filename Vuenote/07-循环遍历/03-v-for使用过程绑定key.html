@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <!--1.未绑定key  -->
+    <ul>
+      <li v-for="(item,index) in letters">{{index+'.'+item}}</li>
+    </ul>
+    <!-- 2.绑定key:更高效地更新DOM -->
+    <ul>
+      <li :key="item" v-for="(item,index) in letters1">{{index+'.'+item}}</li>
+    </ul>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello',
+        letters:['A','B','C','D','E'],
+        letters1:['A','B','C','D','E']
+      },
+      methods:{
+
+      }
+    })
+  </script>
+</body>
+
+</html>

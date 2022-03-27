@@ -16,8 +16,13 @@
 <body>
   <div id='app'>
     <!-- 作业需求：点击列表中哪一项，哪一项就变为红色 -->
+    <!-- 方法一 -->
     <ul>
       <li  :class="{active:isActive[index]}" @click="active(index)" v-for="(item,index) in movies">{{index+"."+item}}</li>
+    </ul>
+    <!-- 方法二 -->
+    <ul>
+      <li  :class="{active:currentIndex == index}" @click="active2(index)" v-for="(item,index) in movies2">{{index+"."+item}}</li>
     </ul>
   </div>
   <script src='../js/vue.js'></script>
@@ -27,21 +32,30 @@
       data: {
         message: 'hello',
         movies:['aaa','bbb','ccc','ddd'],
-        isActive:[true,false,false,false]
+        isActive:[true,false,false,false],
+        movies2:['aaa','bbb','ccc','ddd'],
+        currentIndex:0
       },
       methods:{
         active:function(index){
-          // i=0
-          // for i in range(length(this.isActive)){
+          // let i=0
+          // for i in range(length(this.isActive))
+          // {
           //   this.isActive[i]=false
           // }
-          this.isActive[0]=false
-          this.isActive[1]=false
-          this.isActive[2]=false
-          this.isActive[3]=false
-          this.isActive[index]=true
-          this.movies[index]='被点击'
-            // 怎么响应？
+          // this.isActive[0]=false
+          // this.isActive[1]=false
+          // this.isActive[2]=false
+          // this.isActive[3]=false
+          // this.isActive[index]=true
+          this.isActive.splice(0,1,false)
+          this.isActive.splice(1,1,false)
+          this.isActive.splice(2,1,false)
+          this.isActive.splice(3,1,false)
+          this.isActive.splice(index,1,true)
+        },
+        active2(index){
+          this.currentIndex=index
         }
       }
     })

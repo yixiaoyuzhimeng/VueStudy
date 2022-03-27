@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <ul>
+      <li v-for="item in letters">{{item}}</li>
+    </ul>
+    <button @click="btn">button</button>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello',
+        letters: ['e','a', 'b', 'c', 'd']
+      },
+      methods: {
+        btn() {
+          // 1.push:在数组最后面加
+          // this.letters.push('a','b')
+          // 2.pop:从数组后面删除
+          // this.letters.pop()
+          // 3.shift:从数组前面删除
+          // this.letters.shift();
+          // 4.unshift():在数组最前面添加元素
+          // this.letters.unshift('a','b')
+          // 5.splice()
+          // 删除:splice(start,删除的数目) 
+          // 增加:splice(start,0,增加的元素) 
+          // 替换:splice(start,替换的数目,替换的元素)可看作先删除再增加 
+          // this.letters.splice(1,2)
+          // this.letters.splice(1,0,'12','34','45')
+          // this.letters.splice(1,3,'12','34','45')
+          // this.letters.splice(1,3,'12','34','45','78')
+          // this.letters.splice(1,3,'12','34')
+          // 6.sort()排序，默认正序
+          // this.letters.sort()
+          // 7.reverse()倒序
+          // this.letters.reverse()
+          
+          
+          // 通过索引值修改数组数字[不是响应式的]
+          // this.letters[0]='bbb'
+
+          // 若要实现修改的响应式
+          // 1.splice(索引值，修改1个数，要修改的值)
+          // this.letters.splice(1,1,'bbb')
+          // 2.set(要修改的对象，索引值，要修改的值)
+          // Vue.set(this.letters,0,'bbb')
+
+        },
+
+      }
+    })
+
+    //可变参数，可传入不限个数的参数
+    function sum(...num){
+      console.log(num)
+    }
+    sum(2,4,1,2,3,2,4,4,3,4,1,4,4,2,3,1,4,1,4,1);
+
+
+  </script>
+</body>
+
+</html>
