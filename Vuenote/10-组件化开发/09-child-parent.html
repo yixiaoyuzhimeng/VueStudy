@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <!--3. parent组件监听自定义事件，进入btnPclick()方法，并把自定义事件自带的item对象传入方法中-->
+    <cpn @child-click="btnPclick($event)"/>
+    <!-- <cpn @child-click="btnPclick"/> -->
+  </div>
+  <template id="cpn1">
+    <div>
+      <!-- 1.child组件监听click事件，进入btnCclick()方法，并把item传入方法中 -->
+      <button v-for="item in books"
+      @click="btnCclick(item)">
+        {{item.name}}
+      </button>
+    </div>
+    
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+
+    Vue.component('cpn', {
+      template: '#cpn1',
+      data() {
+        return {
+          books: [
+            {
+              id: 1,
+              name: '《算法导论》',
+              data: '2006-9',
+              price: 85.000,
+              count: 1
+            },
+            {
+              id: 2,
+              name: '《代码大全》',
+              data: '2006-9',
+              price: 85.000,
+              count: 1
+            },
+            {
+              id: 3,
+              name: '《UNIX编程艺术》',
+              data: '2006-2',
+              price: 59.000,
+              count: 1
+            },
+            {
+              id: 4,
+              name: '《编程珠玑》',
+              data: '2008-10',
+              price: 39.000,
+              count: 1
+            }
+          ]
+        }
+      },
+      methods: {
+        btnCclick(item){
+          // 2.child方法里发射自定义事件，定义事件名称，并把item传入事件中
+          this.$emit('child-click',item)
+        }
+      }
+    })
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello'
+      },
+      methods: {
+        // 4.parent方法接受伴随自定义事件传递进来的item对象，并输出（或进行其他的调用）
+        btnPclick(item){
+          console.log(item.name)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

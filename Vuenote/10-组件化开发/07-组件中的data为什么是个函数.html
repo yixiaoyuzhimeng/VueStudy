@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <!-- 组件实例对象 -->
+    <cpn1></cpn1>
+    <cpn1></cpn1>
+    <cpn1></cpn1>
+  </div>
+
+  <template id="cpn">
+    
+    <div>
+      <div>我是组件</div>
+      <h2>{{counter}}</h2>
+      <button @click="decrement">-</button>
+      <button @click="increment">+</button>
+    </div>
+  </template>
+
+
+  <script src='../js/vue.js'></script>
+  <script>
+
+      Vue.component('cpn1',{
+        template:'#cpn',
+        data(){
+          // 使用return时每次创建的是新的对象,避免不同组件之间相互干扰，保证不同组件保持有自己的数据
+          return{
+            counter:0
+          }
+        },
+        methods:{
+          increment(){
+            this.counter++
+          },
+          decrement(){
+            this.counter--
+          }
+        }
+      })
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello'
+      }
+    })
+  </script>
+</body>
+
+</html>

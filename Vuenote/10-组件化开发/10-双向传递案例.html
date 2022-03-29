@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <!-- 将num传入cnum中 用来显示 -->
+    <!-- 监听自定义事件change，并把随事件传入的变量dnum放入方法changeNum中 -->
+   <cpn 
+    :cnum1="num1"
+    :cnum2="num2"  
+    @change1="changeNump1"
+    @change2="changeNump2($event)"
+  />
+  </div>
+  <template id="cpn">
+    <div>
+      <h1>{{cnum1}}</h1>
+      <h1>{{dnum1}}</h1>
+      <input type="number" :value="dnum1" @input="changeNumc1($event)">
+      <!-- 回顾v-model双向绑定原理
+         显示：动态绑定value=data里的变量 
+         改变：监听输入事件改变时调用方法,通过$event事件改变data里的变量 -->
+      <h1>{{cnum2}}</h1>
+      <h1>{{dnum2}}</h1>
+      <input type="number" :value="dnum2" @input="changeNumc2">
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        // parent组件中的数据num
+        num1:1,
+        num2:2
+      },
+      methods:{
+        // 获取child自定义事件传入的变量dnum，更改parent组件中的数据num
+        changeNump1(dnum1){
+          this.num1=parseFloat(dnum1)
+        },
+        changeNump2(dnum2){
+          this.num2=parseFloat(dnum2)
+        }
+      },
+      components: {
+        cpn:{
+          template:'#cpn',
+          props:{
+            // child组件中变量标签名cnum，获取parent中的变量num
+            cnum1:{
+              type:Number,
+              default:0
+            },
+            cnum2:{
+              type:Number,
+              default:0
+            }
+          },
+          data(){
+            // child组件中的变量dnum，用于动态显示在input的value中
+            return{
+             dnum1:this.cnum1,
+             dnum2:this.cnum2
+            }
+          },
+          methods:{
+            // child中监听input事件后的方法，用于改变dnum,并生成事件改变传入parent
+            changeNumc1(event){
+                // 1.将input中的value值复制到dnun1中
+                this.dnum1=event.target.value
+                // 2，发出事件传入parent组件，用来修改parent里的num1
+                this.$emit('change1',this.dnum1)
+                // 3.同时修改dum2的值
+                this.dnum2=this.dnum1*100
+                this.$emit('change2',this.dnum2)
+            },
+            changeNumc2(event){
+              this.dnum2=event.target.value
+              this.$emit('change2',this.dnum2)
+              this.dnum1=this.dnum2/100
+              this.$emit('change1',this.dnum1)
+
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
