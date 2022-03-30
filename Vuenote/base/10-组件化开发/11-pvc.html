@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn ref="a"></cpn>
+    <cpn ref="b"></cpn>
+    <cpn></cpn>
+    <button @click="btnClick">button</button>
+  </div>
+  <template id="cpn">
+    <div>
+      child
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello'
+      },
+      methods: {
+        btnClick() {
+
+          // way1:$children
+          // console.log(this.$children);
+          // this.$children[0].childM();
+          // this.$children[0].name;
+          // for(let c of this.$children){
+          //   console.log(c.name)
+          //   c.childM()
+          // }
+
+          // way2:$refs 默认为空对象，
+          console.log(this.$refs);
+          console.log(this.$refs.a);
+          console.log(this.$refs.a.name);
+          console.log(this.$refs.b);
+        }
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              name: "child'data"
+            }
+          },
+          methods: {
+            childM() {
+              console.log("this is child'methods ")
+            }
+          }
+        },
+      }
+    })
+  </script>
+</body>
+
+</html>
