@@ -37,28 +37,87 @@ export default 由导入者自己命名，在同意模块中，不允许同时�
 node为了正常执行代码，必须包含各种依赖包
 npm用于管理包
 - vue cli依赖webpack3.6.0 
-全局安装[npm install webpack@3.6.0 -g] 局部安装[npm install webpack@3.6.0 --save-dev],终端中输入webpack获得的都是全局webpack
+全局安装[npm install webpack@3.6.0 -g] 
+局部安装[npm install webpack@3.6.0 --save-dev]
+终端中输入webpack获得的都是全局webpack
 ##### 使用
-- 使用webpack打包[webpack ./src/main.js(入) ./dist/bundle.js(出)] html中直接引用bundle.js
+- 使用webpack打包
+[webpack ./src/main.js(入) ./dist/bundle.js(出)]
+ html中直接引用bundle.js
 - 配置好直接打包[ webpack ]
 webpack.config.js 中设置入口和出口(动态获取路径)
-一旦准备使用nord就先进行初始化[npm init]生成package.json,若存在要使用的依赖，就使用[npm run install ~]安装依赖
+一旦准备使用nord就先进行初始化[npm init]生成package.json
+若存在要使用的依赖，就使用[npm run install ~]安装依赖
 - [npm run build]
-在package.json的'scripts'中加入'build':'webpack'
+在package.json的'scripts'中加入"build":"webpack"
 这种方式会优先在本地里找webpack版本(局部安装)
-##### css/less/photo的打包配置
+##### 打包配置
 ######  loader 
 - 将各种文件转化为浏览器可识别的文件
 ###### css
 - 在main.js中导入css文件
-- 安装[npm install --save-dev css-loader]
+[ require('./css/normal.css')]
+- 安装
+[npm install --save-dev css-loader@2.0.2]
+[npm install --save-dev style-loader@0.23.1]
+下载的插件默认是最新版本的，如果需要下载指定版本，则在插件名称后需要加上@版本号
 - 配置 在webpack.config.js中的modules
+[ 
+  module.exports = {
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: [ 'style-loader', 'css-loader' ]
+         css-loader只加载，style-loader负责渲染到dom中
+        }
+      ]
+    }
+  }
+]
 ###### less
-- 
-- 
+- 导入
+- 安装
+[npm install --save-dev less-loader@4.1.0]
+[npm install --save-dev less@3.9.0]
+- 配置
+{
+  test: /\.less$/,
+  use: [{
+      loader: "style-loader" // creates style nodes from JS strings
+  }, {
+      loader: "css-loader" // translates CSS into CommonJS
+  }, {
+      loader: "less-loader" // compiles Less to CSS
+  }]
+}
 ###### url
-- 
-- 
+- 导入
+- 安装
+[npm install --save-dev url-loader@1.1.2]
+[npm install --save-dev file-loader@3.0.1]
+并在output中配置生成图片的位置[ publicPath:'文件夹名']
+还可修改生成图片的名字
+- 配置
+[
+   {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+               name:'img/[name].[hash:8].[ext]'
+            }
+          }
+        ]
+      }
+] 
+###### babel
+- ES6转为ES5
+- 安装
+[npm install --save-dev babel-loader@7.1.5 babel-core@6.26.3 babel-preset-es2015@6.24.1]
+- 配置
 ##### 使用Vue
 - vue loader
 ##### 配置plugin
