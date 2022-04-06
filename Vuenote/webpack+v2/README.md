@@ -1,5 +1,5 @@
 # webpack
-## day6 webpack
+## day6 webpack day10 day11
 #### 模块化的普通使用和commonJs使用了解
 导入<br>
 const {add,mul}=require('./mathUtils.js')<br>
@@ -137,34 +137,71 @@ webpack.config.js 中设置入口和出口(动态获取路径)<br>
 - runtime-compiler 
 可以有template,因为有compiler用于编译<br>
 需要在webpack.config.js中使用alias指出依赖runtime-compiler<br>
+ resolve:{
+    // alias:别名
+    alias:{
+      'vue$':'vue/dist/vue.esm.js'
+    }
+  }
 ###### 用法
 - 基础使用
 - template选项的内容可以替代el
 - 组件的使用
 - 分离为js文件
 - vue文件
-(1)vue-loader <br>
-[npm install vue-loader@^13.0.3 vue-loader-compiler@2.5.21  --save-dev] <br>
-
+vue-loader 
+(1)导入<br>
+[import App from './vue/App.vue']<br>
+假如想在导入的时候不使用后缀名[import App from './vue/App']，可在webpack.config.js中的resolve中配置[ extensions:[ '.js','.css','.vue']]，未实现<br>
+(2)安装<br>
+[npm install vue-loader@13.0.0 vue-template-compiler@2.5.21  --save-dev] <br>
+(3)配置<br>
+{
+        test:/\.vue$/,
+        use:['vue-loader']
+      }<br>
+(4)组件的嵌套使用<br>
 ##### 配置plugin
-###### banner
+###### plugin
+- 对现有框架的扩充
+###### banner:版权声明
+- 配置<br>
+导入[const webpack =require('webpack')]<br>
+使用[  plugins:[
+    new webpack.BannerPlugin('最终版权归yixiaoyuzhimeng所有')
+  ]]<br>
+- 效果在打包的budle.js文件夹的开头可以看出
 ###### HtmlWebpackPlugin
+- 作用：在dist文件夹自动生成index.html文件，并将打包的js文件自动配置
+- 安装<br>
+[npm install html-webpack-plugin@3.2.0 --save-dev]<br>
+- 配置webpack.config.js<br>
+先导入<br>
+后使用
+   [new HtmlWebpackPlugin({
+      template:'index.html'
+    })]<br>
 ###### UglifyjsWebpackPlugin
+- 作用：
+压缩js文件
+- 安装：<br>
+[npm install uglifyjs-webpack-plugin@1.1.1 --save-dev]
+- 配置：
+[const uglifyjsWebpackPlugin=require('uglifyjs-webpack-plugin')]
+[new uglifyjsWebpackPlugin()]
 ##### 搭建本地服务器
-webpack-dev-server
+- 安装
+[npm install webpack-dev-server@2.9.3 --save-dev]
+- 配置
+在webpack.config.js中配置<br>
+在package.json中配置"dev":"webpack-dev-server --open"<br>
+- 使用
+在本地进行测试[npm run dev]，响应式修改呈现<br>
+只有当确认之后再使用[npm run build]进行打包<br>
+- 问题：未引用到打包的js文件（路径问题？）
 ##### 配置文件模块分离
 - 开发时依赖 devDependencies
 - 运行时依赖 dependencies
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -190,3 +227,45 @@ this是最近作用域里的this，一层一层向外查找
 
 ## day8 webpack和CLI的完善
 2022.4.1 摸鱼ing
+
+## day9 vue-router(1)
+3 days later 2022.4.4
+### 知识点补充
+##### 路由
+现实中的路由：ip地址必须是唯一的，内网ip与公网ip的映射关系（需要补充计算机网络的知识）
+##### 前端路由与后端路由
+后端路由(后端负责处理URL和页面之间的映射关系)->
+前后端分离(后端只负责提供数据，前端渲染，大部分内容是前端写的js代码在浏览器中执行的结果)->
+前端路由：SPA(单页面富应用：整个网站只有一个html页面。一次请求全部资源，前端负责分离渲染，页面不刷新)
+##### 改变url不发生刷新的方法
+###### url的hash:
+location.hash='路径名'
+###### html5的history:
+- history.pushState({},'','路径名')
+类似于一个栈结构，可通过history.back()后退,history.forward()前进
+- history.replaceState({},'','路径名') 无历史记录
+- history.go(-1)后退 history.go(1)前进 
+### vue-router
+##### 安装
+- 安装
+[npm install vue-router --save]
+- 导入路由对象，调用Vue.use(VueRouter)安装插件
+- 创建路由实例，传入路由映射配置
+- 在Vue实例中挂载创建的路由实例
+##### 使用
+- 创建路由组件
+
+- 配置路由映射:组件-路由
+
+可设置默认值，并将hash模式设置为history模式
+
+- 使用路由：< router-link>和< router-view>
+< router-link to='路径' tag='表现' replace active-class='active'>
+active-class还可以在vue中修改
+- 通过代码跳转路由
+this.$router.push('路径')
+
+
+
+
+

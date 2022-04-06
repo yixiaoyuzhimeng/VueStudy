@@ -27,7 +27,6 @@ module.exports = {
         }]
       },
       {
-      
         test: /\.(png|jpg|gif)$/,
         use: [
           {
@@ -38,7 +37,6 @@ module.exports = {
               // 当加载的图片大于limit时，需要使用file-loader模块进行加载
               name:'img/[name].[hash:8].[ext]'
             },
-            
           }
         ]
       },
@@ -52,6 +50,10 @@ module.exports = {
             presets: ['es2015']
           }
         }
+      },
+      {
+        test:/\.vue$/,
+        use:['vue-loader']
       }
     ] 
   },
@@ -59,6 +61,8 @@ module.exports = {
     // alias:别名
     alias:{
       'vue$':'vue/dist/vue.esm.js'
-    }
+    },
+    // 设置扩展名
+    extensions:['.js','.css','.vue']
   }
 }
