@@ -2,15 +2,14 @@
 const path = require('path')
 const webpack =require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const uglifyjsWebpackPlugin=require('uglifyjs-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
   output: {
     // 动态获取绝对路径
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: 'bundle.js',
-    publicPath:'./dist/'
+    // publicPath:'./dist/'
     // 用于把生成的图片正常显示出来（路径问题）
   },
   module: {
@@ -39,6 +38,7 @@ module.exports = {
               // 当加载的图片小于limit时，会将图片编译成base64字符串形式
               // 当加载的图片大于limit时，需要使用file-loader模块进行加载
               name:'img/[name].[hash:8].[ext]'
+              // 使名字更容易看到
             },
           }
         ]
@@ -73,10 +73,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       template:'index.html'
     }),
-    // new uglifyjsWebpackPlugin()
   ],
-  devServer:{
-    contentBase:'./dist',//指定文件夹提供本地服务
-    inline:true//实时监听
-  }
 }

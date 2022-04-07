@@ -1,5 +1,5 @@
 # webpack
-## day6 webpack day10 day11
+## day6 webpack day10  day11 day12
 #### 模块化的普通使用和commonJs使用了解
 导入<br>
 const {add,mul}=require('./mathUtils.js')<br>
@@ -161,7 +161,7 @@ vue-loader
         use:['vue-loader']
       }<br>
 (4)组件的嵌套使用<br>
-##### 配置plugin
+##### 配置plugin  
 ###### plugin
 - 对现有框架的扩充
 ###### banner:版权声明
@@ -179,7 +179,7 @@ vue-loader
 先导入<br>
 后使用
    [new HtmlWebpackPlugin({
-      template:'index.html'
+      template:'index.html' 依赖最开始的index.html中的[< div id="app">]生成dist文件夹中的模板
     })]<br>
 ###### UglifyjsWebpackPlugin
 - 作用：
@@ -189,7 +189,7 @@ vue-loader
 - 配置：
 [const uglifyjsWebpackPlugin=require('uglifyjs-webpack-plugin')]
 [new uglifyjsWebpackPlugin()]
-##### 搭建本地服务器
+##### 搭建本地服务器 
 - 安装
 [npm install webpack-dev-server@2.9.3 --save-dev]
 - 配置
@@ -199,13 +199,15 @@ vue-loader
 在本地进行测试[npm run dev]，响应式修改呈现<br>
 只有当确认之后再使用[npm run build]进行打包<br>
 - 问题：未引用到打包的js文件（路径问题？）
+解决：在之前配置url-loader时在webpack.config.js中配置生成图片的位置，此处删除;<br>
+由于刚才已使用HtmlWebpackPlugin把文件打包到dist文件夹中的index.html，所以那里直接引用，不再在源文件夹的index.html中使用
 ##### 配置文件模块分离
 - 开发时依赖 devDependencies
 - 运行时依赖 dependencies
-
-
-
-## day7  CLI
+- 安装
+[npm install webpack-merge@4.1.5 --save-dev]
+- 文件分离与合并
+## day7  CLI day12
 ###### CLI脚手架
 - 作用：快速搭建Vue开发环境和对应的webpack配置
 - 前提：node和npm
@@ -267,5 +269,7 @@ this.$router.push('路径')
 
 
 
+
+## day13 vue-router(2) 
 
 

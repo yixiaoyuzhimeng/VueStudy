@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class='title'>{{ message }}</h1>
-    <button @click="btnClick">按钮</button>
+    <button @click="btnClick">按钮啦啦啦啦啦ashgfkasgf</button>
     <Cpn/>
     <!-- 使用组件 -->
   </div>
@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     btnClick() {
-      console.log("按钮已点击App");
+      console.log("按钮已点击App，这里做了修改");
     },
   },
 };
