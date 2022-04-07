@@ -1,27 +1,38 @@
+# cli
 ## day7  CLI 
-###### CLI脚手架
+##### 安装
 - 作用：快速搭建Vue开发环境和对应的webpack配置
 - 前提：node和npm
 - 全局安装 最新版cli3 [npm install -g @vue/cli]
-- 全局安装 拉取低版本cli2 [npm install -g @vue/cli init]
+- 全局安装 拉取低版本cli2 桥接工具[npm install -g @vue/cli init]
 ##### 创建项目
 - cli2 [vue init webpack 项目名] 有很多选项
 - cli3 [vue create 项目名]
 - ES(js)-Lint 代码规范
 - e2e(e to e)端到端测试
+- runtime-only与runtime-compiler只有main.js不同<br>
+（1）compiler<br>
+[components: { App },templp/>ate:'< Ap']<br>
+template->ast->render->virtualdom->真实dom<br>
+（2）only<br>
+[ render: h => h(App)]<br>
+render->virtualdom->真实dom<br>
+性能更高，代码更少<br>
 ##### 初始化项目
 - cli2[npm run dev]
 - cli3[npm run serive]
 - node可作为底层支撑，由C++和V8引擎组成，可将js直接转换为二进制代码[ 一般js->字节码->浏览器 ]
 - 了解目录结构
-- runtime-only相比于runtime-compiler性能更好，代码更少
-##### 箭头函数
+##### cli3的配置
+- [vue ui]进入界面
+- 隐藏的配置文件
+- 创建文件vue.config.js
+##### es6中的箭头函数
 this是最近作用域里的this，一层一层向外查找   
+## day12 CLI(完善)
 
 
-## day12 CLI(2)
-
-
+# vue-router
 ## day9 vue-router(1)
 3 days later 2022.4.4
 ### 知识点补充
@@ -48,18 +59,11 @@ location.hash='路径名'
 - 在Vue实例中挂载创建的路由实例
 ##### 使用
 - 创建路由组件
-
 - 配置路由映射:组件-路由
-
 可设置默认值，并将hash模式设置为history模式
-
 - 使用路由：< router-link>和< router-view>
 < router-link to='路径' tag='表现' replace active-class='active'>
 active-class还可以在vue中修改
 - 通过代码跳转路由
 this.$router.push('路径')
-
-
-
-
 ## day13 vue-router(2) 

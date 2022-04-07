@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 箭头函数中的this引用的是最近作用域里的this，向外一层层查找
+    const a = {
+      aaa() {
+        setTimeout(function () {
+          setTimeout(function () {
+            console.log(this)//windows对象
+          }, 1000)
+          setTimeout(() => {
+            console.log(this)//windows对象
+          }, 1000)
+        }, 1000)
+        setTimeout(() => {
+          setTimeout(function () {
+            console.log(this)//windows对象
+          }, 1000)
+          setTimeout(() => {
+            console.log(this)//a对象
+          }, 1000)
+        }, 1000)
+      }
+    }
+    a.aaa()
+  </script>
+</body>
+
+</html>
