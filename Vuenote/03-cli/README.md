@@ -30,7 +30,7 @@ render->virtualdom->真实dom<br>
 ##### es6中的箭头函数
 this是最近作用域里的this，一层一层向外查找   
 ## day12 CLI(完善)
-
+疑问：cli中打包后的只能放在服务器上部署么？怎么部署呢？有哪些可用的服务器呢？
 
 # vue-router
 ## day9 vue-router(1)
