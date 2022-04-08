@@ -57,13 +57,44 @@ location.hash='路径名'
 - 导入路由对象，调用Vue.use(VueRouter)安装插件
 - 创建路由实例，传入路由映射配置
 - 在Vue实例中挂载创建的路由实例
+## day13 vue-router(2) 
+### vue-router
 ##### 使用
 - 创建路由组件
 - 配置路由映射:组件-路由
-可设置默认值，并将hash模式设置为history模式
+可用redirect设置默认路径，使用[ mode:'history']将hash模式设置为history模式
 - 使用路由：< router-link>和< router-view>
 < router-link to='路径' tag='表现' replace active-class='active'>
 active-class还可以在vue中修改
 - 通过代码跳转路由
-this.$router.push('路径')
-## day13 vue-router(2) 
+【有点问题】
+this.$router.push('路径') 
+this.$router.replace('路径')
+- 动态路由
+(1)index.js中修改path名[ path:'/user/原路径:xx']
+(2)在根组件< App>中动态绑定[ :to="'/user/'+xxxx"]
+(3)如果想在组件中中使用数据[ $route.param.xx]
+- vue-router打包
+【问题：每种都有两个文件 .js和.js.map】
+(1)app 当前应用程序开发的所有业务代码<br>
+路由懒加载,防止app.js这个文件过大<br>
+[ 用到时再加载：把不同路由对应的组件分割成不同的代码块]<br>
+方法<br>
+(1.1)结合Vue异步组件<br>
+(1.2)AMD写法<br>
+(1.3)ES6[ const Home=()=>import('/components/Home.vue')]<br>
+(2)manifest 为打包的代码作底层支撑<br>
+(3)vendor 第三方提供商<br>
+##### 扩展
+- 嵌套使用
+- 参数传递
+- 全局
+
+
+
+# tabbar
+
+# promise
+
+# vuex
+
