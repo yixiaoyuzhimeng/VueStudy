@@ -86,13 +86,39 @@ this.$router.replace('路径')
 (2)manifest 为打包的代码作底层支撑<br>
 (3)vendor 第三方提供商<br>
 ##### 扩展
-- 嵌套使用
-- 参数传递
-- 全局
-
-
+- 嵌套使用<br>
+(1)创建对应的child组件，并且在路由映射中配置child路由<br>
+(2)parent组件内部使用< router-view>< router-link><br>
+- 参数传递<br>
+(1)params
+1.1)配置路由格式/router/:id
+1.2)传递时在child组件的path后跟上对应的值/router/'+Id
+1.3)传递后形成路径/router/Id
+1.4)使用时可用$router.params.id获得Id值
+(2)query
+2.1)普通配置/router
+2.2)传递时使用query的key作为传递方式
+2.3)传递后形成路径/router?id=Id
+- 所有组件都继承自Vue类的原型<br>
+(1)router:VueRouter实例，想要导航到不同URL，则使用$router.push等方法<br>
+(2)route:当前router跳转对象里面可以获取的值<br>
+- 生命周期函数<br>
+created()创建组件时<br>
+mounted()template挂载时<br>
+updated()界面发生刷新时<br>
+- 守卫<br> 
+(1)作用：监听跳转过程，修改网页标题<br>
+(2)全局导航守卫<br>
+(3)路由独享守卫<br>
+(4)组件内的守卫<br>
+- keep-alive
+(1)vue内置组件，用于使被包含的组件保存状态，避免重新渲染(不断地创建与销毁)
+(2)属性include和exclude,内容是字符串或正则表达式，用于缓存匹配的组件
+(3)router-view如果被包在keep-alive里面，所有路径匹配到的视图组件都会被缓存
 
 # tabbar
+## day14 
+
 
 # promise
 

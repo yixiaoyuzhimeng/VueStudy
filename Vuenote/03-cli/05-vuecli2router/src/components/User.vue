@@ -16,7 +16,13 @@
         // .params.xx
         return this.$route.params.user
       }
-    }
+    },
+  created () {
+    console.log('created')
+  },
+  destroyed () {
+    console.log('destroyed')
+  },
   }
 </script>
 

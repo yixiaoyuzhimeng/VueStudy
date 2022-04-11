@@ -31,6 +31,9 @@ const router = new Router({
     {
       path: '/home',
       component: Home,
+      meta:{
+        title:'首页'
+      },
       children: [
         {
           path: '',
@@ -49,24 +52,41 @@ const router = new Router({
     },
     {
       path: '/about',
-      component: About
+      component: About,
+      meta:{
+        title:'关于'
+      },
     },
     {
       // 动态路由(1)：源路径加一个名字':xx'
       path: '/user/:user',
-      component: User
+      component: User,
+      meta:{
+        title:'用户'
+      },
     },
     {
       path:'/profile',
-      component:Profile
+      component:Profile,
+      meta:{
+        title:'档案'
+      },
     }
   ],
   // 设置为html5的history模式
   mode: 'history',
   // 修改名称
   linkActiveClass: 'active'
-
 })
+
+
+router.beforeEach((to,from,next)=>{
+  // 从from跳转到to
+  document.title=to.matched[0].meta.title
+  next()
+})
+
+
 
 // 并导出
 export default router;

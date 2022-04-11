@@ -6,7 +6,10 @@
     replace [history.replaceState({},'','路径名')]
     active -->
     <!-- router-view渲染组件本身 -->
+    <keep-alive>
     <router-view></router-view>
+    </keep-alive>
+    
     <router-link to="/home" replace>首页</router-link>
     <router-link to="/about" replace>关于</router-link>
 
@@ -14,10 +17,10 @@
     <button @click="aboutClick">关于</button> -->
     <!-- 动态路由（2）拼接真实路径名 -->
     <!-- 参数传递params -->
-    <!-- <router-link :to="'/user/'+userId">用户</router-link> -->
+    <router-link :to="'/user/'+userId">用户</router-link>
     <!-- 参数传递query -->
-    <!-- url :scheme://host:port/path?query#fragment-->
-    <!-- <router-link :to="{path:'/profile',query:{name:'why',age:19,height:1.88}}">档案</router-link> -->
+    <!-- url :scheme://host:port/path?query#fragment -->
+    <router-link :to="{path:'/profile',query:{name:'why',age:19,height:1.88}}">档案</router-link>
     <!-- 代码实现参数传递:出现问题 -->
     <!-- <button @click="uClick">User</button>
     <button @click="pClick">Profile</button> -->

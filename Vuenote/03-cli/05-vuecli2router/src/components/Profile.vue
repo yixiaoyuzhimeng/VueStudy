@@ -11,6 +11,12 @@
 <script>
 export default {
   name: "Prifile",
+  created () {
+    console.log('created')
+  },
+  destroyed () {
+    console.log('destroyed')
+  },  
 };
 </script>
 
