@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    // 网络请求：aaa ->自处理（10行）
+    // aaa111 -> 自处理（10行）
+    // aaa111222 ->自处理（10行）
+
+    new Promise((resolve,reject)=>{
+      setTimeout(()=>[
+        resolve('aaa')
+      ],1000)
+    }).then(res=>{
+      // 自处理
+      console.log(res,'第一行111');
+      // 对结果第一次处理
+      return new Promise((resolve)=>{
+        resolve(res+'111')
+      })
+    }).then(res=>{
+      console.log(res,'第二行222');
+      return new Promise(resolve=>{
+        resolve(res+'222')
+      })
+    }).then(res=>{
+      console.log(res,'第三行333');
+      // 简写方法
+      return Promise.resolve(res+'333')
+    }).then(res=>{
+      console.log(res,'第四行444')
+      //再度简化 
+      return res+'444'
+    }).then(res=>{
+      console.log(res,'第五行555')
+    })
+
+  </script>
+</body>
+</html>

@@ -118,9 +118,34 @@ updated()界面发生刷新时<br>
 
 # tabbar
 ## day14 
+##### 组件的嵌套使用+slot
+##### 别名alias
 
 
 # promise
+## day15
+##### promise
+- es6语法
+- 处理异步编程
+对异步操作进行封装,阻止回调地狱
+网络请求
+- 三种状态
+(1)padding:网络请求或定时器未到时间
+(2)fulfill:主东回调resolve
+(3)reject:主动回调reject
+- 链式使用
+（1）
+（2）
+- all方法
+解决：
+- 
+
+
 
 # vuex
+## day14
+##### 作用
+- 状态管理，集中式，响应式
+多个组件内共享
+
 

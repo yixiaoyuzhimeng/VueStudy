@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 基础使用
+    // 有异步操作时，使用promise对异步操作进行封装
+    // new->构造函数（1.保存一些状态信息2.执行传入的函数）
+    // 在执行传入的回调函数时，会传入两个参数，resolve\reject本身又是函数
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // 成功时调用resolve
+        // resolve("hello")
+        // 失败时调用reject
+        reject("error message")
+      }, 1000)
+    }).then((data) => {//成功
+      console.log(data)
+    }).catch(err => {
+      console.log(err)//失败
+    })
+
+
+    // 另一种方法
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('hello')
+        reject('error message')
+      }, 1000)
+    }).then(
+      data => {//成功
+        console.log(data)
+      },
+      err => {//失败
+        console.log(err)
+      }
+    )
+  </script>
+</body>
+
+</html>
