@@ -138,14 +138,48 @@ updated()界面发生刷新时<br>
 （2）
 - all方法
 解决：
-- 
 
 
 
 # vuex
-## day14
+## day16
 ##### 作用
-- 状态管理，集中式，响应式
+- 状态(变量)管理，集中式，响应式
 多个组件内共享
+##### 安装
+- [npm install vuex --save]
+##### 
 
 
+
+
+
+# 网络模块封装
+## day16 day17
+##### 安装使用
+- install [npm install axios@0.18.0 --save]
+- import 
+- 基本使用
+[ axios({url:''}).then(res=>{})]
+[测试服务器网站 http://123.207.32.32:8000/home/multidata]
+- 并发请求
+[axios.all([ axios(),axios()]).then(results=>{})]
+- 全局配置
+[ axios.defaults.baseURL='http://123.207.32.32:8000']
+##### 实例
+[ const instance=axios.create({}) instance({})]
+##### 模块封装
+- 当引入第三方库时，要警惕多文件对其的依赖
+- 导入
+(1)参数中传入两个回调函数
+(2)对象中设置回调函数
+(3)，参数中传入两个会嗲凹函数
+- 导出
+(1)声明3个参数
+(2)声明1个参数
+(3)声明1个参数，函数中返回实例对象
+##### 拦截器
+- 请求拦截
+- 响应拦截
+
+ 
