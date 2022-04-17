@@ -142,16 +142,33 @@ updated()界面发生刷新时<br>
 
 
 # vuex
-## day16
+## day16 day18
 ##### 作用
-- 状态(变量)管理，集中式，响应式
-多个组件内共享
+- 多个组件内共享的 状态(变量)管理,集中式，响应式
+- 单页面状态管理 ->view->action->state-> 环形
+- 多页面状态管理 state->VueComponents->(异步操作[ backend]Action->)->Mutation[ Devtools]->
 ##### 安装
-- [npm install vuex --save]
-##### 
-
-
-
+- [npm install vuex@3.0.1 --save]
+##### 使用
+- 封装到一个文件并导出 
+(1)安装插件<br>
+(2)创建对象<br>
+state:{data} state单一状态树<br>
+mutations:{methods} 在此更新state,可使用payload传递参数,可用类型常量<br>
+actions:{methodd}<br>
+getters:{computation} 接受参数时使用函数<br>
+modules:{}<br> 
+(3)导出对象<br>
+- 导入vuex使用 
+1)$store.state.counter
+2)$store.state.commit("")
+3)$store.getters
+- module的使用
+1)state
+2)mutation
+3)getters
+4)actions
+- vuex-store文件夹目录组织
 
 
 # 网络模块封装
