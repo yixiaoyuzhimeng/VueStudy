@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>first</title>
+    <link rel="stylesheet" href="/VueStudy/Vuenote2/bootstrap-3.4.1-dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="/VueStudy/Vuenote2/bootstrap-3.4.1-dist/css/bootstrap.css"/>
+  </head>
+  <body>
+    <div id="app">
+      <div class="form-group">
+        <label for="goal">Goal</label>
+        <input type="text" id="goal" v-model="enteredValue" class="form-control"/>
+        <button v-on:click="addGoal" class="btn btn-default">Add Goal</button>
+      </div>
+      <ul class="list-group">
+        <li v-for="goal in goals" class="list-group-item">
+          {{goal}}
+        </li>
+      </ul>
+    </div>
+    <script src="/VueStudy/Vuenote2/bootstrap-3.4.1-dist/js/jquery-3.6.4.js"></script>
+     <script src="/VueStudy/Vuenote2/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+     <script src="app.js"></script>
+  </body>
+</html>
