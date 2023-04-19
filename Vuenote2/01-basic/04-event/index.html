@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Vue Events</h1>
+    </header>
+    <!-- event v-on -->
+    <!-- event augument -->
+    <!-- event modifier -->
+    <!-- v-model -->
+    <!-- computed -->
+    <!-- watch  -->
+    <section id="events">
+      <h2>Events in Action</h2>
+      <button @click="AddCounter">Add</button>
+      <button @click="RemoveCounter(2)">Reduce</button>
+      <p v-once>Starting Result:{{counter}}</p>
+      <p>Result:{{counter}}</p>
+      <input type="text" v-on:input="setName($event,'Daria')" @keyup.enter="confirmInput()">
+      <!--v-on:input="setName()  -->
+      <p>Your name:{{confirmName}}</p>
+      <!-- .prevent modifier -->
+      <form @submit.prevent="submitForm">
+        <input type="text">
+        <button>Sign Up</button>
+      </form>
+      <hr/>
+      <input type="text" v-model="name">
+      <button @click="resetInput">reset</button>
+      <p>your name:{{fullname}}</p>
+
+    </section> 
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

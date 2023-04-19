@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/VueStudy/Vuenote2/bootstrap-3.4.1-dist/css/bootstrap-theme.css"/>
+  <link rel="stylesheet" href="/VueStudy/Vuenote2/bootstrap-3.4.1-dist/css/bootstrap.css"/>
+</head>
+<body>
+  <header>
+    <h1>Vue Course Goals</h1>
+  </header>
+  <section id="user-goal" >
+    <h2>My Course Goal</h2>
+    <p>{{courseGoal}}</p>
+    <p>learn more <a v-bind:href="vueLink">about Vue</a>></p>
+    <p>{{outputGoal()}}</p>
+    <p v-html="htmlex">456</p>
+  </section>
+  <script src="/VueStudy/Vuenote2/bootstrap-3.4.1-dist/js/jquery-3.6.4.js"></script>
+  <script src="/VueStudy/Vuenote2/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
