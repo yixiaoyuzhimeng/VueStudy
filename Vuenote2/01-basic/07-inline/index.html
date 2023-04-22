@@ -8,7 +8,13 @@
   <style>
     .active{
       border-color: red;
-      background-color: salmon;
+    }
+    section div{
+      width: 100px;
+      height: 100px;
+      border-style: solid;
+      border-color: #ccc;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -17,11 +23,16 @@
     <header>
       <h1>Vue Dynamic Styling</h1>
     </header>
-    <div id="style">
-      <div class="demo"></div>
-      <div class="demo"></div>
-      <div class="demo"></div>
-    </div>
+    <section id="styling">
+      <!-- inline style -->
+      <div class="demo" :style="{borderColor:boxASelected?'red':'#ccc'}" @click="boxSelected('A')">111</div>
+      <!-- inline class -->
+      <div class="demo" :class="{active:boxBSelected}" @click="boxSelected('B')">222</div>
+      <!-- computed class -->
+      <div class="demo" :class="boxCClasses" @click="boxSelected('C')">333</div>
+      <div :class="['demo',{active:boxDSelected}]" @click="boxSelected('D')">444</div>
+      <div class="demo" @click="boxSelected('E')">555</div>
+    </section>
   </div>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="app.js"></script>
