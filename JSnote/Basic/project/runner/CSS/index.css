@@ -1,0 +1,199 @@
+html{
+    font-size: 20px;
+}
+body{
+    padding:0;
+    margin:0 ;
+    font-family: "隶书","微软雅黑";
+}
+.container{
+    padding:0;
+    margin:0 auto;
+    width:50rem;
+}
+.head{
+    background-color: teal;
+    height:2.7rem;
+    width: 100%;
+}
+.foot{
+    background-color: rgb(75, 74, 74);
+    height: 5rem;
+    width: 100%;
+    
+}
+.foot p{
+    text-align: center;
+    margin-top:2rem;
+    position: absolute;
+    color:rgb(221, 195, 165);
+}
+.foot a{
+    color: aliceblue;
+}
+.foot .container{
+    height: 100px;
+    position: relative;
+}
+.foot .container div{
+    position:absolute;
+    left:23rem;
+    height:5rem;
+    width: 10rem;
+}
+
+.hei{
+    height: 0.5rem;;
+}
+a{
+    text-decoration: none;/*可继承的属性*/
+    display:block;
+}
+/*------------------用列表新式设计的------------------*/
+
+#list{
+    width:50rem;
+    height:2.5rem;
+    margin:0 auto;/*设置菜单的容器在页面水平居中*/
+}
+#list li{
+    width:10rem;
+}
+#list ul{
+    list-style: none; 
+}
+
+#list ul ul{
+    display:none;
+    position:absolute;
+}
+
+#list ul{
+    margin:0;
+    padding: 0;
+}
+/*必须用直接后代，并且层层指向*/
+#list>ul>li{
+    float:left;
+}
+
+#list li a{
+    background-color: teal;
+    color:white;
+    padding: 0.5rem;
+    text-align:center;
+    font-size:1.5rem;
+
+
+}
+
+/* #list>ul>li:hover a{ */
+
+#list li a:hover{ 
+    background-color: white;
+    color:teal;
+}
+
+#list ul>li:hover ul{
+    display:block;
+}
+
+#list ul ul a:hover{
+    background-color: rgb(32, 139, 139);
+    color:white;
+}
+
+
+
+/*------------------用超链接设计的------------------*/
+
+
+
+.menu{
+    width:10rem;
+}
+
+.menu a{
+    padding:2rem;
+    margin:0;
+}
+
+
+
+/*为什么一旦访问一个，在其他页面中也显示已访问，是有cookie么*/
+.menu a:link{/*未被访问的链接*/
+    width: 1rem;
+    background-color:rgb(255, 255, 255);
+    transition: width 1s ,background-color 1s,transform 1s;
+    color: rgb(0, 0, 0);
+}
+
+.menu a:visited{/*已访问的链接*/
+    width: 1rem;
+    background-color:white;
+    color: black;
+    
+}
+.menu a:hover{/*鼠标指针移动到链接上*/
+    width: 6rem;
+    background-color:brown ;
+    color: white;
+    
+}
+.menu a:active{/*被激活的链接*/
+    width: 6rem;
+    background-color: burlywood;
+    color: white;
+}
+
+#now{
+    width: 1rem;
+    background-color:rgb(184, 193, 224);
+    color: rgb(0, 0, 0);
+}
+
+#right .menu a{
+    margin-right: 0;
+    margin-left:5rem;
+    transition: margin-left 1s;
+}
+#right .menu a:hover{
+    margin-right: 0;
+    margin-left:0rem;
+    background-color: aliceblue;
+    color:black;
+}
+
+/*------------------清除浮动------------------*/
+
+.clear{
+    clear: both;
+}
+
+
+/*------------------------------布局----------------------------------------*/
+
+#right{
+    width:40rem;
+    float:right;
+    position: relative;
+}
+#words{
+    position:absolute;
+    right:0;
+    width:0.5rem;
+    margin:5rem;
+    font-size:2rem;
+}
+
+
+.inner{
+    width:30rem;
+}
+
+
+#div2:hover
+{
+    
+    transform:rotateY(180deg);
+}

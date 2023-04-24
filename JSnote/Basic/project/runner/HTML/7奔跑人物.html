@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>奔跑人物</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../IMG/runner.ico" type="image/x-icon">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+        <link rel="stylesheet" href="../CSS/swiper-bundle.min.css">
+        <style>
+            #e{
+                transition: background-color 0.5s;
+            }
+            #e:hover{
+                background-color: #d4dcf3;
+            }
+            .swiper-container {
+                width: 98%;
+                height:17rem;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .swiper-slide {
+                text-align: center;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+                /* transition: border 1s; */
+            }
+            .swiper-slide:hover{
+                border:#eeeeee solid;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div id="list">    
+                <ul>
+                    <li><a href="#" target="_self">&</a> </li>
+                    <li><a href="../index.html" target="_self">首页</a></li>
+                    <li><a href="../HTML/2个人信息.html" target="_self" >简历</a> </li>
+                    <li><a href="../HTML/3学习总结.html" target="_self">总结</a> </li>
+                    <li><a href="#" target="_self"> &</a> </li>
+                    
+                </ul>
+            </div>
+            <div class="menu" style="float:left">
+                <a href="../HTML/4跑步简介.html"  target="_self" >简介</a>
+                <a href="../HTML/5跑步知识.html"  target="_self" >知识</a>
+                <a href="../HTML/6跑步书籍.html" target="_self" >书籍</a>
+                <a href="../HTML/7奔跑人物.html"  id="now" target="_self" >人物</a>
+                <a href="../HTML/8奔跑动物.html"  target="_self" >动物</a>
+                <a href="../HTML/9与自然奔跑.html" target="_self" >自然</a>
+                <a href="../HTML/10交流论坛.html" target="_self" >论坛</a>  
+            </div>
+            <div id="right">
+                <div class="menu" style="float:right">
+                    <a href="#短跑" >短跑</a>
+                    <a href="#长跑" >长跑</a>
+                    <a href="#鸡血" >鸡血</a>
+                </div>
+                <div class="inner">
+                   <div style="background-color: #F1F3F8;">
+                    <a name="短跑"></a>
+                       <p style="white-space:pre-wrap">            短跑需要的是爆发力，
+            你的肺突然间涌入大量空气，
+            你的肌肉突然承受巨大压力，
+            你的心脏、你的五脏六腑、你的皮肤，
+            让我们感受一下。</p>
+                       <a href="https://www.bilibili.com/video/BV1Hs411y7Yc" target="_blank"><img width="100%" src="../IMG/runner1.png" alt="博尔特告诉你9秒58有多快" title="博尔特告诉你9秒58有多快"></a>
+
+                   </div>
+                   <hr/>
+                   <div style="background-color: #F1F3F8;">
+                    <a name="长跑"></a>
+                        <p style="white-space:pre-wrap">            长跑需要耐力，
+            呼吸、节奏与专注比什么都重要。
+            好的跑步姿势也必不可少，
+            让我们欣赏一下。</p>
+                        <a href="https://www.bilibili.com/video/BV1Ha4y1e7iW" target="_blank"><img width="100%" src="../IMG/runner2.png" alt="大迫杰的跑姿" title="大迫杰的跑姿"></a>
+                   </div>
+                   <hr/>
+                   <div style="background-color: #F1F3F8;">
+                        <a name="鸡血"></a>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="https://www.bilibili.com/video/BV15b411L7e6/?spm_id_from=333.788.recommend_more_video.0" target="_blank">
+                                        <img width="100%" src="../IMG/runner3.png" alt="我们的马拉松" title="我们的马拉松">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="https://www.bilibili.com/video/BV1ta4y1i7iP" target="_blank">
+                                        <img width="100%" src="../IMG/runner4.png" alt="未完成的未来！挑战者" title="未完成的未来！挑战者">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="https://www.bilibili.com/video/BV1S54y1q7AQ" target="_blank">
+                                        <img width="100%" src="../IMG/runner5.png" alt="Nike精英训练营" title="Nike精英训练营">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+        
+        <div class="foot">
+            <div class="container" >
+              <div >
+                  <p>
+                          版权所有：🐟<br/>
+                      <a href="mailto:1440514992@qq.com?subject=加入我们" title="了解更多">
+                          联系我们
+                      </a>
+                  </p>
+              </div>
+            </div>
+        </div>
+        
+        
+    </body>
+
+    <script src="../JS/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            loop: true, 
+            direction: 'vertical',
+            slidesPerView: 1,
+            spaceBetween: 30,
+            mousewheel: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
+
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>跑步知识</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../IMG/runner.ico" type="image/x-icon">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+        <style>
+            #result p{
+                background-color: #dddddd;
+               white-space:pre-wrap;
+            }
+            right.menu a:active{
+            width: 1rem;
+            background-color: burlywood;
+            color: white;
+            }
+            #right .menu a{
+                margin-right: 0;
+                margin-left:5rem;
+                transition: background-color 1s;
+            }
+            #right .menu a:hover{
+                width: 1rem;
+                margin-left:5rem;
+                margin-right: 0;
+                background-color: aliceblue;
+                color:black;
+            }
+             table{
+                 width: 100%;
+                text-align: center;
+                border:0.2rem solid rgb(190, 190, 190);
+                font-family: "微软雅黑";
+            }
+            td{
+                /* padding: 0.6rem 1.2rem; */
+                padding: 1rem 0.4rem;
+                background-color:#d6e0f0;
+            }
+            th{
+                padding: 0.2rem 0.4rem;
+                background-color: #8d93ab;
+                color:white;
+                font-weight:lighter ;
+            }
+            
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div id="list">    
+                <ul>
+                    <li><a href="#" target="_self">&</a> </li>
+                    <li><a href="../index.html" target="_self">首页</a></li>
+                    <li><a href="../HTML/2个人信息.html" target="_self" >简历</a> </li>
+                    <li><a href="../HTML/3学习总结.html" target="_self">总结</a> </li>
+                    <li><a href="#" target="_self"> &</a> </li>
+                    
+                </ul>
+            </div>
+            <div class="menu" style="float:left">
+                <a href="../HTML/4跑步简介.html" target="_self" >简介</a>
+                <a href="../HTML/5跑步知识.html"  id="now" target="_self" >知识</a>
+                <a href="../HTML/6跑步书籍.html" target="_self" >书籍</a>
+                <a href="../HTML/7奔跑人物.html" target="_self" >人物</a>
+                <a href="../HTML/8奔跑动物.html"  target="_self" >动物</a>
+                <a href="../HTML/9与自然奔跑.html" target="_self" >自然</a>
+                <a href="../HTML/10交流论坛.html" target="_self" >论坛</a>
+                
+            </div>
+            
+
+            
+            <div id="right">
+                <div class="menu" style="float:right">
+                    <a href="#了解" >了解</a>
+                    <a href="#认识" >认识</a>
+                    <a href="#思索" >思索</a>
+                    <a href="#计划" >计划</a>
+                    <img src="../IMG/比赛.jpg" width="100%" alt="Noritake的作品动态化" title="Noritake的作品动态化">
+                </div>
+                <div class="inner" >
+                    <hr/>
+                   <div style="background-color: #e0ece4;">
+                    <p style="white-space:pre-wrap;">    你是否准备好跑步？
+    抑或是被一次两次不合理的跑步打击得一蹶不振？
+    现在，让我们一起走出舒适区，同时保证健康吧</p>
+                   </div>
+                   <hr/>
+                   <div >
+                       <a name="了解">
+                       <p style="white-space:pre-wrap;">    如果你是跑步入门者，
+    首先花30分钟跑步，
+    再做这个史蒂凡尼测试查看自己的问题吧</p>
+</a>
+                       <div style="background-color: #eeeeee;" id="start">
+                            <from >
+                                <br/>
+                                你的状态如何？觉得训练如何？<br/>
+                                <label for="t11">
+                                    <input type="radio" id="t11" name="status" value=0 v-model="score1" >非常简单
+                                </label><br/>
+                                <label for="t12">
+                                    <input type="radio" id="t12" name="status" value=1 v-model="score1" >比较轻松
+                                </label><br/>
+                                <label for="t13">
+                                    <input type="radio" id="t13" name="status" value=2 v-model="score1">对身体有一定要求，但是完成情况不错
+                                </label><br/>
+                                <label for="t14">
+                                    <input type="radio" id="t14" name="status" value=3 v-model="score1">费力，跑下来备受折磨
+                                </label><br/>
+                                <label for="t15">
+                                    <input type="radio" id="t15" name="status" value=4 v-model="score1">费力，没有坚持下来
+                                </label><br/><br/>
+                               呼吸情况如何？<br/>
+                               <label for="t21">
+                                    <input type="radio" id="t21" name="breath"  value=0 v-model="score2" >根本没有感觉到呼吸
+                                </label><br/>
+                                <label for="t22">
+                                    <input type="radio" id="t22" name="breath" value=1 v-model="score2">感觉到了呼吸，能够得到放松
+                                </label><br/>
+                                <label for="t23">
+                                    <input type="radio" id="t23" name="breath" value=2 v-model="score2">感觉到了呼吸，但是中间需要歇一歇
+                                </label><br/>
+                                <label for="t24">
+                                    <input type="radio" id="t24" name="breath" value=3 v-model="score2">呼吸感到不适，几乎不能得到放松
+                                </label><br/>
+                                <label for="t25">
+                                    <input type="radio" id="t25" name="breath" value=4 v-model="score2">呼吸急促费力，发出刺耳声音
+                                </label><br/><br/>
+                                肌肉是否僵硬？<br/>
+                               <label for="t31">
+                                <input type="radio" id="t31" name="muscle" value=0 v-model="score3">一点也没有
+                                </label><br/>
+                                <label for="t32">
+                                    <input type="radio" id="t32" name="muscle" value=1 v-model="score3">程度较轻
+                                </label><br/>
+                                <label for="t33">
+                                    <input type="radio" id="t33" name="muscle" value=2 v-model="score3">感觉明显，拉伸后较好
+                                </label><br/>
+                                <label for="t34">
+                                    <input type="radio" id="t34" name="muscle" value=3 v-model="score3">很僵硬，拉伸时很疼
+                                </label><br/><br/>
+                                有骨骼不适的情况么？(自我诊断)<br/>
+                                <textarea cols="60" rows="6"></textarea><br/><br/>
+                                跑步整体感受<br/>
+                                <label for="t41" >
+                                    <input type="checkbox" id="t41" name="test" value=1 v-model="score4">跑后半段比前半段困难
+                                </label><br/>
+                                <label for="t42" >
+                                    <input type="checkbox" id="t42" name="test" value=3 v-model="score4">备受打击，一点也不想跑了
+                                </label><br/>
+                                <label for="t43" >
+                                    <input type="checkbox" id="t43" name="test" value=2 v-model="score4">太累了
+                                </label><br/><br/>
+                                
+                                <input type="button" value="测试完成" @click="getScore">
+                           </from>
+                           <div id="result" v-if="isc">
+                               
+                                <p v-if="s<2">
+                恭喜你，你早已从初跑者进阶，
+                可以考虑一下比赛，
+                或者做一些针对性练习查漏补缺。
+                                </p>
+                                <p v-else-if="s<=6">
+                你的身体很棒，
+                可以说是初跑者中的佼佼者了，
+                看一下自己还有哪些做的不够好，
+                下次练习时专注于这些地方。
+                                </p>
+                                <p v-else-if="s<=10">
+                你有很大提升空间，
+                思考一下是不是刚开始起跑太快，
+                或者呼吸与节奏没有把握好？
+                                </p>
+                                <p v-else-if="s<=20">
+                跑步会给你带来一些痛苦，
+                但是通过一些观念的转变和专业的训练，
+                相信你也可以爱上跑步。
+                下次从走跑训练开始吧！
+                                </p>
+                           </div>
+                       </div>
+                   </div>
+                   <hr/>
+                   <div  style="background-color: #d8d3cd;">
+                    <a name="认识"></a>
+                       <p style="white-space:pre-wrap;">
+    相信通过刚才的测试,你对自身有所了解。
+    我们还需要认识到，跑步中不可避免会“受伤”，
+    跑步锻炼的不仅仅有身体的肌肉，还有呼吸、甚至还有大脑。
+    <a href="../HTML/6跑步书籍.html" style="display:inline;background-color: #797a7e;color:white">查看书籍，了解更多</a>
+                       </p>
+                       
+                   </div>
+                   <hr/>
+                   <div style="background-color: #f7f2e7;">
+                        <a name="思索"></a>
+                        <p style="white-space:pre-wrap;">
+    接着我们需要思索自己目前想要的，
+    这样才能制定更可行的计划。
+    1.了解自己的身体状况
+    2.是否以参加比赛为目的，或者是为了锻炼身体？
+    （参考刚才测试的建议）
+    3.是否准备装备，调节饮食？
+    4.是单独跑，还是跟团队？
+    然后可以按照下面的形式制作自己的跑步计划。
+                        </p>
+                   </div>
+                   <hr/>
+                </div>
+                
+            </div>
+            <div class='clear'></div>
+            <div>
+                <a name="计划"></a>
+                   <table>
+                       <caption><input type="month">周计划表</caption>
+                        <tr>
+                            <th>周</th>
+                            <th>一</th>
+                            <th>二</th>
+                            <th>三</th>
+                            <th>四</th>
+                            <th>五</th>
+                            <th>六</th>
+                            <th>七</th>
+                        </tr>
+                        <tr>
+                           <td>第一周</td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                        </tr>
+                        <tr>
+                            <td>第二周</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                         </tr>
+                         <tr>
+                            <td>第三周</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                         </tr>
+                         <tr>
+                            <td>第四周</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                         </tr>
+                   </table>
+               </div>
+        </div>
+        <div class="foot">
+            <div class="container" >
+              <div >
+                  <p>
+                          版权所有：🐟<br/>
+                      <a href="mailto:1440514992@qq.com?subject=加入我们" title="了解更多">
+                          联系我们
+                      </a>
+                  </p>
+              </div>
+              
+            </div>
+          </div>
+    
+        
+    </body>
+    <script src="../JS/vue.min.js"></script>
+    <script>
+        
+        const app=new Vue({
+            el:"#start",
+            data:{
+                
+                isc:false,
+                score1:0,
+                score2:0,
+                score3:0,
+                score4:[],
+                s:0,
+                age:0,
+                name:'',
+            },
+            methods:{
+                getScore:function(){
+                    this.isc=true;
+                    this.s=0;
+                    for(let i=0;i<this.score4.length;i++)
+                    {                 
+                        this.s+=parseInt(this.score4[i]);
+                    }
+                    this.s+=parseInt(this.score1)+parseInt(this.score2)+parseInt(this.score3);
+                    return this.s;
+                },
+                
+            },
+            
+        })
+    </script>
+</html>
